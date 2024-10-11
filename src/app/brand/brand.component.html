@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Auto Brand {{ selectedBrand }}</h2>
+  <div class="row" *ngFor="let car of filteredCars">
+    <div class="col-md-4">
+      <div class="card">
+        <img
+          [src]="car.modelImage"
+          class="card-img-top"
+          alt="{{ car.model }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ car.model }}</h5>
+          <p class="card-text">
+            Anno: {{ car.year }} - Prezzo: {{ car.price }}€
+          </p>
+          <button class="btn btn-primary" [routerLink]="['/']">
+            Torna ai Brand
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

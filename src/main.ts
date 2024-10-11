@@ -1,8 +1,8 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideHttpClient, withFetch } from '@angular/common/http'; // Nuova API HttpClient
+import { AppComponent } from './app/app.component';
+import { AppRoutingModule } from './app/app-routing.module';
 
-import { AppModule } from './app/app.module';
-
-platformBrowserDynamic().bootstrapModule(AppModule, {
-  ngZoneEventCoalescing: true
-})
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [provideHttpClient(withFetch()), AppRoutingModule],
+}).catch((err) => console.error(err));
